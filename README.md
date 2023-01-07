@@ -8,7 +8,8 @@ But since this app has backend you wont see any data records. Even if I add dumm
 **Do setup on your pc** 
  1. Clone project
  2. Create local DB using sql file (Then you can run it quickly through Xampp)
- 4. Run Api from server folder
+ 3. Type node install on terminal to install dependancies
+ 4. Run Api from server folder(npm run dev)
  5. Run react app from my-app folder (npm start) 
 
 **Or simply watch the video where I cover all features**
