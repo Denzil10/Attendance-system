@@ -20,7 +20,7 @@ app.get("/student/fetch", (req, res) => {
     con.connect(function (err) {
         if (err) throw err;
         con.query("SELECT * FROM student", function (err, result, fields) {
-            if (err) throw err;
+            // if (err) throw err;
             res.json(result)
         });
     })
@@ -39,7 +39,7 @@ app.get("/calendar/fetch", (req, res) => {
     con.connect(function (err) {
         if (err) throw err;
         con.query("SELECT * FROM calendar", function (err, result, fields) {
-            if (err) throw err;
+            // if (err) throw err;
             res.json(result)
         });
     })
@@ -61,7 +61,7 @@ app.post("/calendar/mark", (req, res) => {
         var make_new = 0;
         if (err) throw err;
         con.query(`select count(1) from calendar where date = ${data}`, function (err, result, fields) {
-            if (err) throw err;
+            // if (err) throw err;
             var count = 1
             Object.keys(result).forEach(function (i) {
                 count = result[i]['count(1)'];
@@ -79,7 +79,7 @@ app.post("/calendar/mark", (req, res) => {
             }
             else {
                 con.query(`update calendar set status= 1 where date = ${data}`, function (err, result, fields) {
-                    if (err) throw err;
+                    // if (err) throw err;
                     res.send("Marked on calendar")
                 });
             }
@@ -105,7 +105,7 @@ app.post("/student/update", (req, res) => {
         for (let i = 0; i < data.length; i++) {
 
             con.query(`update student set status=${data[i][0]}, checkin ="${data[i][1]}", out_status=${data[i][2]}, checkout ="${data[i][3]}" where roll=${data[i][4]}`, function (err, result, fields) {
-                if (err) throw err;
+                // if (err) throw err;
                 console.log(result)
             });
 
@@ -129,7 +129,7 @@ app.post("/student/add", (req, res) => {
     con.connect(function (err) {
         if (err) throw err;
         con.query(`insert into student(roll, name) values(${data.roll}, "${data.name}") `, function (err, result, fields) {
-            if (err) throw err;
+            // if (err) throw err;
             console.log(result)
         });
 
